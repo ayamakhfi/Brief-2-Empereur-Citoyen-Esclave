@@ -1,0 +1,17 @@
+{
+  "name": " Empereur, Citoyen, Esclave",
+  "version": "1.0.0",
+  "description": "Jeu Empereur, Citoyen, Esclave",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev":"tailwindcss -i ./src/style.css -o ./dist/output.css --watch",
+    "build": "tailwindcss -i ./src/style.css -o ./dist/output.css --minify"
+  },
+ 
+ 
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
