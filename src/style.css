@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme{
+    --color-emperur-plan:#100F2E; 
+    --color-emperur-panneaux:#351747;
+    --color-emperur-navigation:#693668;
+     --color-emperur-section :#55246D;
+     --color-emperur-élémentsecond :#A74482;
+     --color-emperur-boutons:#F12B91;
+     --color-emperur-accent:#F84AA7;
+     --color-emperur-fonds:#F5E6E8;
+     --color-emperur-cartes:#F5E6E8;
+     --color-emperur-text:#ffffff;
+}
