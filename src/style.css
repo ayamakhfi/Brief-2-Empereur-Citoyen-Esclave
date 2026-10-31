@@ -8,7 +8,49 @@
      --color-emperur-élémentsecond :#A74482;
      --color-emperur-boutons:#F12B91;
      --color-emperur-accent:#F84AA7;
-     --color-emperur-fonds:#F5E6E8;
+     --color-emperur-fonds:#FFF5FA;
      --color-emperur-cartes:#F5E6E8;
      --color-emperur-text:#ffffff;
+}
+
+@theme{
+  --font-display:"Eczar",Display;
+  
+}
+
+button{
+    border-radius: 20px;
+    box-shadow:rgba(0, 0, 0, 0.2) 0 10px 20px -7px; ; 
+     background-image: linear-gradient(180deg, #c9c2f0 30%, transparent 70%);
+     background-repeat: no-repeat;
+     background-position: center 45%;
+    background-color: var(--color-emperur-boutons);
+    background-size: 100% 200%;
+    padding:  10px 20px;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  transition: all 0.5s ease;
+   box-sizing: border-box;
+   justify-content: center;
+   align-items:center;
+
+}
+
+button:hover{
+   transform: translateY(-3px);
+}
+
+svg{
+  width:30px;
+  height: 40px;
+}
+p{
+  --font-family:"Inter Regular";
+}
+
+#avatar img{
+  object-fit:contain;
+  border-radius: 50%;
 }
