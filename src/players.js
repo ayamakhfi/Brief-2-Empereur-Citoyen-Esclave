@@ -1,12 +1,13 @@
 // ajouter un pseudo
+let arr=[];
 
 function addplayer(){
     const form=document.getElementById("pseudo");
     const inputname=form.querySelector('[name="pseudo"]');
     const messagename=inputname.parentElement.querySelector(".error-message ");
   const  regexadd=/^[A-Za-zà-ÿ0-9 .'-]{3,20}$/;
-   let find=false;
-
+   
+// -----------------premiére-----------------------------------
 
   inputname.addEventListener("input",()=>{
 
@@ -19,10 +20,6 @@ function addplayer(){
 
 
     // nom redoublet + validation 
-
-  
-
-   
 
     if(nickname===""){
         messagename.textContent="";
@@ -43,27 +40,30 @@ function addplayer(){
         messagename.textContent="Forme valide";
         messagename.classList.add("text-green-500");
     }
-
-// //   add a player
- 
-   
+  });
 
 
-// });
-
-const avatars=document.getElementById("avatar");
+const avatars=form.querySelector('#avatar');
+const messageavatar=avatars.parentElement.querySelector(".error-message");
  let choix="";
  
+//  ---------------------------------second----------------------------
+
+
 avatars.addEventListener('click',(e)=>{
   const img=e.target.closest('[data-avatar]') ;
    choix=img.dataset.avatar;
+   if(choix){
+    messageavatar.classList.add("text-green-500");
+   messageavatar.textContent="avatar a été choisi"}
+
    console.log(choix);});
 
 
 
 
-const button=document.getElementById("ajouter");
-let arr=[];
+// ----------------------------------troisième-----------------------
+
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
 
@@ -72,16 +72,13 @@ form.addEventListener('submit',(e)=>{
 
 
  arr.forEach((profile)=>{
-   if (nickname.toLowerCase()===profile.pseudo.toLowerCase()){
-         find=true;}
-   } );
 
-    if (find===true){
+   if (nickname.toLowerCase()===profile.pseudo.toLowerCase()){
         messagename.textContent="ce pseudo est déjà utiliser";
         inputname.classList.add("border-red-500");
         messagename.classList.add("text-red-500");
         return;
-    }
+    } });
 
 
    if(!regexadd.test(nickname)){
@@ -106,8 +103,14 @@ form.addEventListener('submit',(e)=>{
     arr.push(player);
     console.log(arr);
 
+    form.reset();
+    choix="";
+    inputname.classList.remove("text-green-500");
+    messageavatar.textContent="";
+    messagename.textContent="";
+
 });
-});
+
 }  addplayer();
 
 // ---------------------Afficher--------------------------
