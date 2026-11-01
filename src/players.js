@@ -69,21 +69,30 @@ form.addEventListener('submit',(e)=>{
 
 
   const nickname=inputname.value.trim();
+ 
+    const exist=arr.some((profile)=>{
+
+     return nickname.toLowerCase()===profile.pseudo.toLowerCase();});
+    console.log(arr);
+    console.log(nickname);
+    console.log(exist);
+
+    if(!regexadd.test(nickname)){
+        
+        return;}
 
 
- arr.forEach((profile)=>{
-
-   if (nickname.toLowerCase()===profile.pseudo.toLowerCase()){
+   if (exist){
+         messagename.textContent="";
         messagename.textContent="ce pseudo est déjà utiliser";
+        inputname.classList.remove("border-green-500");
+        inputname.classList.remove("text-green-500");
+
         inputname.classList.add("border-red-500");
         messagename.classList.add("text-red-500");
         return;
-    } });
+    } 
 
-
-   if(!regexadd.test(nickname)){
-        
-        return;}
 
     if(choix===""){
         alert("choisez un avatar")
@@ -115,6 +124,7 @@ form.addEventListener('submit',(e)=>{
 
 // ---------------------Afficher--------------------------
 function afficheprofile(){
+
 const afficher=document.getElementById("afficher");
    const template=document.getElementById("playercarte")
 
