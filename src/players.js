@@ -110,8 +110,44 @@ form.addEventListener('submit',(e)=>{
 });
 }  addplayer();
 
+// ---------------------Afficher--------------------------
+function afficheprofile(){
+const afficher=document.getElementById("afficher");
+   const template=document.getElementById("playercarte")
+
+    afficher.innerHTML="";
+arr.forEach((profile)=>{
+     const clone=template.content.cloneNode(true);
+ clone.querySelector(".image").src=profile.avatar;
+ clone.querySelector(".nom").textContent=profile.pseudo;
+ clone.querySelector(".partie").textContent=`${profile.partie}partie`;
+ clone.querySelector('[data-action=""ajouter]').dataset.id=profile.id;
+ clone.querySelector('[data-action="modifier"]').dataset.id=profile.pseudo;
+
+
+afficher .appendChild(clone)
+    
+});
+}afficheprofile();
+
 
 // ------------------Modification-------------------------
 
 // --------------------Supprimer----------------------------
 
+const afficher=document.getElementById("afficher");
+afficher.addEventListener('click',(e)=>{
+    const button=e.target.closest('[data-action="supprimer"]');
+    const nom=button.dataset.id;
+    arr=arr.filter((profile)=>profile.id!=id);
+});
+
+afficher.addEventListener('click',(e)=>{
+    const button=e.target.closest('[data-action="modifier"]');
+    const nouveaux=button.dataset.id;
+   const play=arr.find(profile.pseudo===nouveaux);
+    if(play){
+       const Anouveaux=prompt("Entrer le nouveau pseudo:",play.pseudo);
+    //    still need to check if the name is in form
+    }
+});
