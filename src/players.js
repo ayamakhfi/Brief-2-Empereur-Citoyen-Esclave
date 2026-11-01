@@ -5,9 +5,10 @@ function addplayer(){
     const form=document.getElementById("pseudo");
     const inputname=form.querySelector('[name="pseudo"]');
     const messagename=inputname.parentElement.querySelector(".error-message ");
-  const  regexadd=/^[A-Za-zà-ÿ0-9 .'-]{3,20}$/;
+  const  regexadd=/^[A-Za-z0-9]{3,15}$/ ;
    
 // -----------------premiére-----------------------------------
+  
 
   inputname.addEventListener("input",()=>{
 
@@ -52,6 +53,8 @@ const messageavatar=avatars.parentElement.querySelector(".error-message");
 
 avatars.addEventListener('click',(e)=>{
   const img=e.target.closest('[data-avatar]') ;
+  if (!img)return;
+
    choix=img.dataset.avatar;
    if(choix){
     messageavatar.classList.add("text-green-500");
@@ -65,6 +68,7 @@ avatars.addEventListener('click',(e)=>{
 // ----------------------------------troisième-----------------------
 
 form.addEventListener('submit',(e)=>{
+
     e.preventDefault();
 
 
@@ -107,10 +111,14 @@ form.addEventListener('submit',(e)=>{
         date:new Date()
     };
 
-   
+    
   
     arr.push(player);
     console.log(arr);
+
+    afficheprofile(arr);
+   
+
 
     form.reset();
     choix="";
@@ -120,47 +128,95 @@ form.addEventListener('submit',(e)=>{
 
 });
 
+
+
 }  addplayer();
 
 // ---------------------Afficher--------------------------
 function afficheprofile(){
 
 const afficher=document.getElementById("afficher");
-   const template=document.getElementById("playercarte")
 
-    afficher.innerHTML="";
-arr.forEach((profile)=>{
-     const clone=template.content.cloneNode(true);
- clone.querySelector(".image").src=profile.avatar;
- clone.querySelector(".nom").textContent=profile.pseudo;
- clone.querySelector(".partie").textContent=`${profile.partie}partie`;
- clone.querySelector('[data-action=""ajouter]').dataset.id=profile.id;
- clone.querySelector('[data-action="modifier"]').dataset.id=profile.pseudo;
-
-
-afficher .appendChild(clone)
+   
+   
+   afficher.innerHTML="";
+   arr.forEach((profile)=>{
+       const carte=document.createElement("article");
+       carte.className='flex flex-col bg-emperur-fonds rounded-lg hover:shadow-lg  hover:shadow-emperur-panneaux  p-6  w-48'
+       carte.innerHTML=` <div class="flex w-full justify-between items-center">
+        <span data-action="modifier" data-id="${profile.id}" class=" cursor-pointer text-lg px-0 hover:text-red-500">...</span>
+        <span  data-action="supprimer" data-id="${profile.id}" class="cursor-pointer text-lg px-0 hover:text-red-500">✕</span>
+        </div>
+        <div class="flex flex-col w-full items-center justify-center">
+        <img src="${profile.avatar}"  alt="${profile.pseudo}" class="h-[50px]">
+        <p class="nom font-semibold text-lg">${profile.pseudo}</p>
+        <p class="partie font-medium text-lg">${profile.play||0}0Partie</p>
+        </div>`; 
+        
+        afficher.appendChild(carte);
+    });
+   
     
-});
-}afficheprofile();
+}
 
 
 // ------------------Modification-------------------------
 
 // --------------------Supprimer----------------------------
 
-const afficher=document.getElementById("afficher");
-afficher.addEventListener('click',(e)=>{
+afficher.addEventListener("click",(e)=>{
     const button=e.target.closest('[data-action="supprimer"]');
-    const nom=button.dataset.id;
+    if(!button)return;
+    const id=button.dataset.id;
     arr=arr.filter((profile)=>profile.id!=id);
+
+afficheprofile();
 });
 
 afficher.addEventListener('click',(e)=>{
+     console.log("click detected")
+
     const button=e.target.closest('[data-action="modifier"]');
+    if(!button)return;
+    e.stopPropagation();
     const nouveaux=button.dataset.id;
-   const play=arr.find(profile.pseudo===nouveaux);
-    if(play){
+     const  regexadd=/^[A-Za-z0-9]{3,15}$/ ;
+   const play=arr.find((profile)=>profile.id===Number(nouveaux));
+    if(!play)return;
+
        const Anouveaux=prompt("Entrer le nouveau pseudo:",play.pseudo);
-    //    still need to check if the name is in form
-    }
+         if(Anouveaux===null)return;
+
+         const nickname=Anouveaux.trim();
+
+         if(!regexadd.test(nickname)){
+            alert("pseudo invalide");
+            return;
+         }
+         
+         const exist=arr.some((profile)=>
+          profile.id!==play.id && nickname.toLowerCase()===profile.pseudo.toLowerCase() );
+       
+
+           if(exist){
+                alert("ce pseudo est déjà exicte");return}
+
+           play.pseudo=nickname ;
+         
+      
+     console.log("play",play);
+     console.log("modification executed");
+   
+    afficheprofile();
+});
+
+
+afficheprofile();
+
+// -----------afficher les régles-----------
+
+const button=document.getElementById("seen");
+const regle=document.getElementById("régle");
+button.addEventListener("click",()=>{
+  regle.classList.remove("hidden");
 });
