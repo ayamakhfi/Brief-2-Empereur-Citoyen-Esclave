@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 @theme{
-    --color-emperur-plan:#100F2E; 
+    --color-emperur-plan:#171717; 
     --color-emperur-panneaux:#351747;
-    --color-emperur-navigation:#693668;
+    --color-emperur-navigation:#7D2635;
      --color-emperur-section :#55246D;
      --color-emperur-élémentsecond :#A74482;
-     --color-emperur-boutons:#F12B91;
-     --color-emperur-accent:#F84AA7;
+     --color-emperur-boutons:#C94C59;
+     --color-emperur-accent:#C94C59;
      --color-emperur-fonds:#FFF5FA;
-     --color-emperur-cartes:#F5E6E8;
+     --color-emperur-cartes:#F4E9E9;
      --color-emperur-text:#ffffff;
+     --color-emperur-cadre:#302323;
 }
 
 @theme{
@@ -21,14 +22,14 @@
 button{
     border-radius: 20px;
     box-shadow:rgba(0, 0, 0, 0.2) 0 10px 20px -7px; ; 
-     background-image: linear-gradient(180deg, #c9c2f0 30%, transparent 70%);
+     background-image: linear-gradient(180deg, #c9c2f0 20%, transparent 70%);
      background-repeat: no-repeat;
      background-position: center 45%;
     background-color: var(--color-emperur-boutons);
     background-size: 100% 200%;
     padding:  10px 20px;
   display: block;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
 
   transition: all 0.5s ease;
@@ -54,3 +55,37 @@ p{
   object-fit:contain;
   border-radius: 50%;
 }
+
+.front-face{
+  
+  transform: rotateY(180deg);
+}
+
+.back-face {
+     
+  transform: rotateY(0deg);
+}
+
+.front-face , .back-face{
+   position: absolute;
+  backface-visibility: hidden;
+  transition:transform 0.8s;
+}
+
+.carteflipped-votre.flip .front-face{
+  transform: rotateY(-180deg);
+}
+.carteflipped-votre.flip .back-face{
+  transform: rotateY(0deg);
+}
+
+
+
+
+.carteflipped-ORD.flip .front-face{
+  transform: rotateY(-180deg);
+}
+.carteflipped-ORD.flip .back-face{
+  transform: rotateY(0deg);
+}
+
