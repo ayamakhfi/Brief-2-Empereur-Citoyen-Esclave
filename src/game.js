@@ -15,29 +15,26 @@ export let mainordnateur=[{name:"Esclave",img:"image/Esclave.png"}
     ,{name:"Citoyen", img:"image/Citoyen.png"}
     ,{name:"Citoyen", img:"image/Citoyen.png"}];
 
-function duel(){
+export function duel(cartejoueur,carteordinateur){
 
     if (cartejoueur==="Empreur" && carteordinateur==="citoyen"){
-      console.log("Vectoir a Empreur");
+      return"Victoir";
       
     }
 
     else if (cartejoueur==="Citoyen" && carteordinateur==="Citoyen"){
-       console.log ("Egalité");}
+      return "Egalité";}
 
     else if (cartejoueur==="Citoyen" && carteordinateur==="Esclave"){
-       console.log("Vectoir a Citoyen");}
+       return "Victoir";}
       
     
-    else{ console.log("victoir a l'esclave");}
-       
-
-    if(i%3===0){
-        let a=mainjoueur;
-        mainjoueur=mainordnateur;
-        mainordnateur=a;
-    }
+    else{ return "défaite";}
 
 }
+
+
+
+
 
 
