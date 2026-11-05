@@ -56,36 +56,35 @@ p{
   border-radius: 50%;
 }
 
-.front-face{
-  
-  transform: rotateY(180deg);
-}
 
-.back-face {
+
+.front-face {
      
-  transform: rotateY(0deg);
+  transform: rotateY(180deg);
 }
 
 .front-face , .back-face{
    position: absolute;
+   inset:0;
   backface-visibility: hidden;
-  transition:transform 0.8s;
-}
-
-.carteflipped-votre.flip .front-face{
-  transform: rotateY(-180deg);
-}
-.carteflipped-votre.flip .back-face{
-  transform: rotateY(0deg);
+  -webkit-backface-visibility: hidden;
+ 
 }
 
 
 
+.carteflipped-votre, .carteflipped-ORD{
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
 
-.carteflipped-ORD.flip .front-face{
-  transform: rotateY(-180deg);
+.carteflipped-votre.flip, .carteflipped-ORD.flip{
+  transform:rotateY(180deg);
 }
-.carteflipped-ORD.flip .back-face{
-  transform: rotateY(0deg);
-}
+
+
+
+
+
 
