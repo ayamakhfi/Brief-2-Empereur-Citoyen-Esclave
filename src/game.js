@@ -2,6 +2,8 @@
 // ----------------------tableau des cartes--------------
 
 
+ const votrecarte=document.querySelector(".votrecarte");
+ const randcarte=document.querySelector(".randcarte");
 
 export let mainjoueur=[{name:"Empereur", img:"image/Empereur.png"}
     ,{name:"Citoyen", img:"image/Citoyen.png"}
@@ -57,22 +59,31 @@ export function duel(cartejoueur,carteordinateur){
 
 
 
-// export function newManche(){
-//      mainjoueur=[{name:"Empereur", img:"image/Empereur.png"}
-//     ,{name:"Citoyen", img:"image/Citoyen.png"}
-//     ,{name:"Citoyen", img:"image/Citoyen.png"}
-//     ,{name:"Citoyen", img:"image/Citoyen.png"}
-//     ,{name:"Citoyen", img:"image/Citoyen.png"}];
+export function newManche(){
+     mainjoueur=[{name:"Empereur", img:"image/Empereur.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}];
 
-//       mainordnateur=[{name:"Esclave",img:"image/Esclave.png"}
-//     ,{name:"Citoyen", img:"image/Citoyen.png"}
-//     ,{name:"Citoyen", img:"image/Citoyen.png"}
-//     ,{name:"Citoyen", img:"image/Citoyen.png"}
-//     ,{name:"Citoyen", img:"image/Citoyen.png"}];
+      mainordnateur=[{name:"Esclave",img:"image/Esclave.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}];
 
-   
+    votrecarte.innerHTML="";
+    randcarte.innerHTML="";
 
-// }
+}
+
+
+// ----------------------mettre a jour-----------------
+
+export function mettreAjour(joueur,ordinateur){
+    mainjoueur=joueur;
+    mainordnateur=ordinateur;
+}
 
 
 
