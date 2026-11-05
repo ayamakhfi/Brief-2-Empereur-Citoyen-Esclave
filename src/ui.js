@@ -4,18 +4,35 @@ import { mainjoueur, mainordnateur } from "./game.js";
 const cartesj=document.getElementById("cartesjoueur")
  export function affichercartesjoueur(mainjoueur){
     cartesj.innerHTML="";
-mainjoueur.forEach((cartej)=>{
+  mainjoueur.forEach((cartej ,index)=>{
 
 const carte=document.createElement("div");
 carte.className="border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[165px] w-[110px] shrink-0 flex items-center hover:shadow-lg hover:shadow-amber-900 hover:-translate-y-3 ";
 carte.innerHTML=` 
-         <img data-action="choisi" data-id="${cartej.name}" src="${cartej.img}" alt="${cartej.name}">`;
+         <img data-action="choisi" data-index="${index}" data-id="${cartej.name}" src="${cartej.img}" alt="${cartej.name}">`;
 
 cartesj.appendChild(carte);});
+
 }
 
 affichercartesjoueur(mainjoueur);
 
+
+// -------------------------------affichage carte ordinateur-------------------------------
+const cartesOrd=document.getElementById("carteordinateur")
+ export function affichercartesOrd(mainordnateur){
+   cartesOrd.innerHTML="";
+mainordnateur.forEach((carted)=>{
+
+const carte=document.createElement("div");
+carte.className="border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[165px] w-[110px] shrink-0 flex items-center hover:shadow-lg hover:shadow-amber-900 hover:-translate-y-3 ";
+carte.innerHTML=` 
+         <img  src="image/logo.png" alt="logo">`;
+
+cartesOrd.appendChild(carte);});
+}
+
+affichercartesOrd(mainordnateur);
 
 
 
@@ -35,16 +52,23 @@ affichercartesjoueur(mainjoueur);
 
 // -----------------------------------choix aléatoire de carte----------------------
 
- export function shuffle(array){
-  let currentIndex=array.length;
+
+
+const randcarte=document.querySelector(".randcarte");
+
+export function choisiORDcarte(){
+
+  let currentIndex=mainordnateur.length;
    let randomcarte= Math.floor(Math.random()*currentIndex);
  
-  return array[randomcarte];
- }
- shuffle(mainordnateur);
+  return mainordnateur[randomcarte];
+}
 
- const randcarte=document.querySelector(".randcarte");
- export const contrecarte=shuffle(mainordnateur);
+
+export function ordinateurcarte(contrecarte){
+ randcarte.innerHTML="";
+if (!contrecarte)return;
+
  randcarte.innerHTML=`<div class="carteflipped-ORD ">
  <div class=" back-face border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[165px] w-[110px] shrink-0 flex items-center ">
          <img src="image/logo.png" alt="logo" class="carte"> </div>
@@ -57,7 +81,7 @@ affichercartesjoueur(mainjoueur);
       </div>
        `;
      
-     console.log("contrecarte",contrecarte);
+     console.log("contrecarte",contrecarte);}
 
 
 
