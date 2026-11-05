@@ -47,19 +47,12 @@ export function duel(cartejoueur,carteordinateur){
 
 
 // -------------------------changer------------------------
-    export function changercamp(){
-        mainjoueur=[{name:"Esclave",img:"image/Esclave.png"},
-       ... mainjoueur.slice(1)
-        ];
-
-        mainordnateur=[{name:"Empereur", img:"image/Empereur.png"},
-            ...mainordnateur.slice(1)
-        ];
-    }
 
 
 
-export function newManche(){
+
+export function newManche(manche){
+    if(manche<3|| (manche>5 && manche<9) ){ 
      mainjoueur=[{name:"Empereur", img:"image/Empereur.png"}
     ,{name:"Citoyen", img:"image/Citoyen.png"}
     ,{name:"Citoyen", img:"image/Citoyen.png"}
@@ -72,10 +65,50 @@ export function newManche(){
     ,{name:"Citoyen", img:"image/Citoyen.png"}
     ,{name:"Citoyen", img:"image/Citoyen.png"}];
 
-    votrecarte.innerHTML="";
+   }
+
+    else{  mainjoueur=[{name:"Esclave",img:"image/Esclave.png"},
+       ... mainjoueur.slice(1)
+        ];
+
+        mainordnateur=[{name:"Empereur", img:"image/Empereur.png"},
+            ...mainordnateur.slice(1)
+        ];}
+
+         votrecarte.innerHTML="";
     randcarte.innerHTML="";
 
 }
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // ----------------------mettre a jour-----------------
