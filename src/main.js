@@ -154,24 +154,24 @@ let nouvelleMainordinateur=[...mainordnateur];
 // -----------manches--------------------
 if(cartev.name==="Empereur"|| cartev.name==="Esclave"
     || contrecarte.name==="Empereur"|| contrecarte.name==="Esclave"){
-        newManche();
+        newManche(manche);
           manche++;
 
-console.log("Joueur :", mainjoueur.length);
-console.log("Ordinateur :", mainordnateur.length);
+// console.log("Joueur :", mainjoueur.length);
+// console.log("Ordinateur :", mainordnateur.length);
 
 affichercartesjoueur(mainjoueur);
 affichercartesOrd(mainordnateur);
         
         manchenb.textContent=manche;
-        if(manche%3===0){
-      changercamp();
 }
-        if(manche>12)return;
+        // if(manche>12){
+          
+        // }
     }
 
   
-}
+// }
 
 
 const manchenb=document.getElementById("monche");
