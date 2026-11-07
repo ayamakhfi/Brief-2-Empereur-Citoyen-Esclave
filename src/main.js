@@ -94,7 +94,7 @@ let nouvelleMainordinateur=[...mainordnateur];
 
       let result=duel(cartev,contrecarte);
           if(result==="Victoir"){
-                  if(cartev.name==="empereur"){
+                  if(cartev.name==="Empereur"){
                        scorejoueur+=1;
                                       }
 
@@ -106,7 +106,7 @@ let nouvelleMainordinateur=[...mainordnateur];
                                        }
 
             else if(result==="défaite"){
-                 if(contrecarte.name==="empereur"){
+                 if(contrecarte.name==="Empereur"){
                         scoreOrdinateur+=1;
                                            }
 
@@ -140,13 +140,16 @@ let nouvelleMainordinateur=[...mainordnateur];
 
                  mettreAjour(nouvelleMainjoueur,nouvelleMainordinateur);
                  
-                 console.log(cartev);
+                 console.log("cartev",cartev);
                  console.log(result);
                 return;  
 }
 
+console.log("result",result)
+
  votrescore.textContent=scorejoueur;
  ordscore.textContent=scoreOrdinateur;
+
 
 
 
@@ -165,11 +168,21 @@ affichercartesOrd(mainordnateur);
         
         manchenb.textContent=manche;
 }
-         if(manche>12)return;
+
+         if(manche>12){
+         modale.classList.remove("hidden");
+         milieu.classList.add("hidden");
+        
+         }
+
+         totaleORD.textContent=scorejoueur;
+         totalejoueur.textContent=scoreOrdinateur;
 //  ----------------------------echange de camp-------------------   
 const camp=document.getElementById("Camp")
 camp.textContent=mainjoueur[0].name;
 console.log("camp",camp);
+
+
   
 }
 
@@ -177,6 +190,32 @@ console.log("camp",camp);
 const manchenb=document.getElementById("monche");
 const votrescore=document.getElementById("votrescore");
 const ordscore=document.getElementById("ordscore");
+const milieu=document.querySelector(".milieu");
+const modale=document.getElementById("modale");
+const totalejoueur=document.getElementById("totalejoueur");
+const totaleORD=document.getElementById("totaleORD");
 
 
+const quitter=document.getElementById("quitter");
+const rejouer=document.getElementById("Rejouer");
+
+quitter.addEventListener("click",()=>{
+  // ----revient a page d accuil------
+})
+
+rejouer.addEventListener("click",()=>{
+  newManche;
+  manche=1;
+
+   manchenb.textContent=manche;
+  scorejoueur=0;
+  scoreOrdinateur=0;
+
+ votrescore.textContent=scoreOrdinateur;
+  ordscore.textContent=scorejoueur;
+  
+  modale.classList.add("hidden");
+   milieu.classList.remove("hidden");
+
+})
 
