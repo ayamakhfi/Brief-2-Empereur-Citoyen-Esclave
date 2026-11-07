@@ -62,7 +62,7 @@ export function choisiORDcarte(){
    let randomcarte= Math.floor(Math.random()*currentIndex);
  
   return mainordnateur[randomcarte];
-}
+} 
 
 
 export function ordinateurcarte(contrecarte){
