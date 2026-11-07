@@ -1,5 +1,5 @@
 
-import { mainjoueur, mainordnateur ,duel ,changercamp ,newManche, mettreAjour} from "./game.js";
+import { mainjoueur, mainordnateur ,duel  ,newManche, mettreAjour} from "./game.js";
 import{ cartechoisi  ,affichercartesjoueur ,affichercartesOrd, choisiORDcarte ,ordinateurcarte} from"./ui.js";
 
 // ---------------------------votre carte----------------------
@@ -165,13 +165,13 @@ affichercartesOrd(mainordnateur);
         
         manchenb.textContent=manche;
 }
-        // if(manche>12){
-          
-        // }
-    }
-
+         if(manche>12)return;
+//  ----------------------------echange de camp-------------------   
+const camp=document.getElementById("Camp")
+camp.textContent=mainjoueur[0].name;
+console.log("camp",camp);
   
-// }
+}
 
 
 const manchenb=document.getElementById("monche");
