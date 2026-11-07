@@ -39,15 +39,15 @@
 <main class="text-emperur-text">
 
 
-    <div class=" milieu flex flex-row gap-4 justify-center py-[100px]">
+    <div class=" milieu flex flex-row gap-4 justify-center py-[100px]  ">
 
                            <!-- ---------carte1--------- -->
-            <div class="votrecarte rounded-lg bg-gray-600 h-[] border-dashed h-[165px] w-[110px] "></div>
+            <div class="votrecarte  rounded-lg bg-gray-600 h-[] border-dashed h-[165px] w-[110px] "></div>
 
 
 
                    <!-- -------------------------au milieu-------------------------------------- -->
-             <section class="bg-emperur-navigation rounded-4xl flex flex-col justify-center items-center p-6">
+             <section class="bg-emperur-navigation rounded-4xl flex flex-col justify-center items-center p-6 ">
 
                       <h2>C'est a vous de Jouer</h2>
                        <p>choississez une carte de votre main</p>
@@ -55,13 +55,38 @@
                          <button type="button" id="start">start</button>
             </section>
 
-                          <!-- ---------carte2--------- -->
+
+                                      <!-- ---------carte2--------- -->
               <div  class=" randcarte rounded-lg bg-gray-600  border-dashed h-[165px] w-[110px] "></div>
+
+   </div>
+
+
+
+            <!-- -------------------------------modale----------------------- -->
+
+
+<div id="modale" class=" bg-emperur-navigation text-emperur-text rounded-lg flex flex-col justify-center items-center min-w-full my-[100px] hidden">
+         <h2>Fin de partie</h2>
+         <h3 >Voter score</h3>
+       <div class="flex flex-row gap-5">
+         <p>pseudo </p>
+         <span id="totalejoueur" >0</span>
+          <p>ordinateur </p>
+          <span id="totaleORD">0</span>
+       </div>
+      <div class=" flex flex-row gap-6"> 
+         <button type="button" id="Rejouer">Rejouer </button>
+         <button type="button" id="quitter">Quitter</button>
+     </div>
+</div>
+
+
     
 
 
 
-   </div>
+
 
 <!-- -----------------------------------------------------votre section---------------------------------------------------- -->
 
@@ -135,7 +160,7 @@
                   <img src="image/logo.png" alt="logo" class="rounded-full h-[30px] ">
                       <div class="flex-col">
                          <h3>Camp actuel</h3>
-                         <p>Empereur</p>
+                         <p id="Camp">Empereur</p>
                       </div>
            </div>
 
@@ -154,7 +179,7 @@
 
 
 
-
+<!-- ------------------------------footer--------------------- -->
 
 <footer class="bg-emperur-navigation text-emperur-text  rounded-t-lg mx-7">
     <div class="max-w-[1100] mx-auto px-5 py-6 ">
