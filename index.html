@@ -7,18 +7,18 @@
   <link rel="stylesheet" href="./dist/output.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-<body class="min-h-screen bg-cover bg-center bg-no repeat"
+<body class="min-h-screen bg-cover bg-center bg-no-repeat"
     style="background-image: linear-gradient(rgba(0,0,0,0.4)),url('./image/bg.png');">
 
 
 
-<header class="bg-emperur-navigation text-emperur-text rounded-lg mx-7.5 my-3.5 h-[50px] ">
-   <div class="  flex  justify-between items-center gap-4 h-full px-2 ">
+<header class="bg-emperur-navigation text-emperur-text rounded-lg mx-3 md:mx-5 lg:mx-7.5 lg:my-3.5 min-h-[50px] ">
+   <div class="  flex flex-col  gap-3 p-3 md:flex-row justify-between items-center md:gap-4 h-full md:px-2 ">
     <div class="flex gap-4 items-center">
     <img src="image/logo.png" alt="logo" class="h-[30px] rounded-lg ">
-    <h1 class="text-xl font-bold font-display ">Kill the KING </h1>
+    <h1 class="text-xl font-bold font-display  whitespace-nowrap">Kill the KING </h1>
     </div>
-    <nav aria-label="menu principale" class="flex  gap-6  font-display  items-center " >
+    <nav aria-label="menu principale" class="flex flex-wrap gap-3 lg:gap-6 md:gap-6 font-display  items-center " >
          
        <a href="#" class=" bg-emperur-accent rounded-full px-4 py-1 ">Accueil</a>
        <a href="#" >Jouer</a>
@@ -31,8 +31,8 @@
 
 </header>
 
-<main class="mx-auto flex  flex-col max-w-full gap-8 px-8 py-8 ">
-<div class="grid grid-cols-2  gap-6">
+<main class="w-full mx-auto px-3 py-5 md:px-5 lg:flex  lg:flex-col  max-w-[1400px] lg:gap-8 lg:px-8 lg:py-8 ">
+<div class=" grid grid-cols-1 gap-4 px-4 py-5 lg:grid-cols-2  lg:gap-6">
 <section class="bg-emperur-cartes rounded-xl p-6 ">
     <h1 class="text-2xl text-emperur-plan font-bold font-display mx-5 mt-4"> Bienvenue</h1>
     <h3 class="ml-7 font-body ">Choisis ton avatar,gére ton profil et lance une partie</h3>
@@ -72,7 +72,7 @@
             <a href="#">voir tout</a>
         </div>
         
-       <div id="afficher" class="flex flex-row gap-3.5 ">
+       <div id="afficher" class="grid grid-cols-2 gap-3.5 md:grid-cols-3 md:gap-3.5 lg:flex lg:flex-row lg:gap-3.5 ">
         
    
     </div>
@@ -82,7 +82,7 @@
 
 <section class="bg-emperur-cartes rounded-xl shrink-0 flex flex-col gap-2 p-6  ">
     <!-- <h1 class="text-2xl text-emperur-plan font-bold font-display text-center">HOW TO PLAY</h1> -->
-    <image src="image/logo.png" alt="carte" class=" mx-auto h-[200px] w-[300px]">
+    <image src="image/logo.png" alt="logo" class=" mx-auto h-[200px] w-[300px]">
     <button id="seen" type="button">Régle de jeu</button>
     <div id="régle" class=" hidden">
         <ol type="I" class="list-[upper-roman] list-inside text-xl">
@@ -140,9 +140,9 @@
 
 </main>
 
-<footer class="bg-emperur-navigation text-emperur-text  rounded-t-lg mx-7">
-    <div class="max-w-[1100] mx-auto px-5 py-6 ">
-    <div class="grid grid-cols-[1fr_1fr_1fr] gap-7 justify-items-center">
+<footer class="bg-emperur-navigation text-emperur-text  rounded-t-lg mx-3 md:mx-5 lg:mx-7">
+    <div class="max-w-[1100] mx-auto px-4 lg:px-5 lg:py-6 ">
+    <div class="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:grid-cols-[1fr_1fr_1fr] lg:gap-7 lg:justify-items-center">
     <section >
         <h3 class="text-[16px] font-bold py-3 font-display">Navigation</h3>
     <nav class="flex flex-col text-[14px]">
@@ -198,7 +198,7 @@
            </section>
            </div>
 
-           <div class=" mx-[550px] my-5 text-sm font-light">
+           <div class=" w-full text-center my-5 text-sm font-light">
             <p> 2026 MAKHFI AYA .Tous les droits réservés. </p> 
            </div>
 
