@@ -1,8 +1,11 @@
 import { mainjoueur, mainordnateur } from "./game.js";
 
+
 // --------------------affichage des carte-----------------
 const cartesj=document.getElementById("cartesjoueur")
+
  export function affichercartesjoueur(mainjoueur){
+  if (!cartesj) return;
     cartesj.innerHTML="";
   mainjoueur.forEach((cartej ,index)=>{
 
@@ -21,6 +24,7 @@ affichercartesjoueur(mainjoueur);
 // -------------------------------affichage carte ordinateur-------------------------------
 const cartesOrd=document.getElementById("carteordinateur")
  export function affichercartesOrd(mainordnateur){
+  if (!cartesOrd) return;
    cartesOrd.innerHTML="";
 mainordnateur.forEach((carted)=>{
 
@@ -76,7 +80,7 @@ if (!contrecarte)return;
      
      
       <div class="front-face border-2 border-amber-600   rounded-lg h-[140px] w-[95px] lg:h-[165px] lg:w-[110px]  shrink-0 relative  overflow-hidden ">
-     <img data-action="choisi" data-id="${contrecarte.name}" src="${contrecarte.img}" alt="${contrecarte.name} class="w-full h-full object-cover">
+     <img data-action="choisi" data-id="${contrecarte.name}" src="${contrecarte.img}" alt="${contrecarte.name}" class="w-full h-full object-cover">
       </div>
       </div>
        `;
@@ -124,4 +128,17 @@ const afficher=document.getElementById("afficher");
     });
    
     
+}
+
+import { getselectaccount } from "./storage.js";
+// --------------------------------account----------------
+
+export function afficherProfilaccount(){
+  const playerheader=document.getElementById("profileHeader");
+  if (!playerheader)return;
+
+  const result=getselectaccount();
+  if(!result)return;
+  playerheader.innerHTML=`<img src="${result.avatar}" alt="avatar"class="h-[30px] w-[30px] rounded-full">
+  </p>${result.pseudo}<p>`;
 }
