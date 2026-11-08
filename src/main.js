@@ -1,6 +1,6 @@
 
 import { mainjoueur, mainordnateur ,duel  ,newManche, mettreAjour } from "./game.js";
-import{ cartechoisi  ,affichercartesjoueur ,affichercartesOrd, choisiORDcarte ,ordinateurcarte} from"./ui.js";
+import{ cartechoisi  ,affichercartesjoueur ,affichercartesOrd, choisiORDcarte ,ordinateurcarte ,afficherProfilaccount} from"./ui.js";
 
 // ---------------------------votre carte----------------------
 let cartev=null;
@@ -11,8 +11,9 @@ const cartesj=document.getElementById("cartesjoueur");
 
 export const votrecarte=document.querySelector(".votrecarte");
 
-
+if(cartesj){
 cartesj.addEventListener("click",(e)=>{
+ 
   const img=e.target.closest('[data-action="choisi"]');
    if (!img) return;
   const index=Number(img.dataset.index);
@@ -39,7 +40,7 @@ cartesj.addEventListener("click",(e)=>{
 
     });
 
-
+  }
 
 
 
@@ -47,7 +48,7 @@ cartesj.addEventListener("click",(e)=>{
 // -----------------------------rest le probléme de flip-----------------
 
  const randcarte=document.querySelector(".randcarte");
-
+   if(randcarte){
  const button=document.getElementById("start");
   button.addEventListener("click",()=>{
     console.log("flip");
@@ -69,7 +70,7 @@ cartesj.addEventListener("click",(e)=>{
 
     });
 
-
+  }
     // ----------------------régle de jeu----------------
 
 
@@ -164,13 +165,13 @@ if(cartev.name==="Empereur"|| cartev.name==="Esclave"
 // console.log("Ordinateur :", mainordnateur.length);
 // ----------------------------------modale-------------------------
   if(manche>12){
+          milieu.classList.add("hidden");
          modale.classList.remove("hidden");
-         milieu.classList.add("hidden");
         
-         }
-
+        
           totalejoueur.textContent=scorejoueur;
          totaleORD.textContent=scoreOrdinateur;
+         return;}
 
 affichercartesjoueur(mainjoueur);
 affichercartesOrd(mainordnateur);
@@ -219,18 +220,19 @@ const groupesection=document.querySelector(".groupesection");
 const quitter=document.getElementById("quitter");
 const rejouer=document.getElementById("Rejouer");
 
+if(quitter){
 quitter.addEventListener("click",()=>{
   // ----revient a page d historique------
 })
 
-
+}
 
 
 
 
 // ----------------------------rejouer----------------------------
 
-
+if(rejouer){
 rejouer.addEventListener("click",()=>{
   
   manche=1;
@@ -258,17 +260,26 @@ affichercartesjoueur(mainjoueur);
 affichercartesOrd(mainordnateur);
 
 })
+
+}
+
 // ----------------écouteur de régle--------------------
-const button=document.getElementById("seen");
+const buttonSeen=document.getElementById("seen");
 const regle=document.getElementById("régle");
-button.addEventListener("click",()=>{
+
+if(buttonSeen){
+buttonSeen.addEventListener("click",()=>{
   regle.classList.remove("hidden");
 });
-
+}
 
 import { afficheprofile } from "./ui.js";
-import {supprimer , modification, arr, ajouterplayer, selecter}from"./players.js"; 
+import {supprimer , modification, arr, ajouterplayer, selecter}from"./players.js";
+
+const afficher=document.getElementById("afficher");
 // ------------------supprimer--------------------
+
+if(afficher){
 afficher.addEventListener("click",(e)=>{
     const button=e.target.closest('[data-action="supprimer"]');
    
@@ -286,9 +297,11 @@ afficher.addEventListener("click",(e)=>{
 
 afficheprofile(arr);
 });
-
+}
 
 // ------------------------modifié------------------------
+
+if(afficher){
 afficher.addEventListener('click',(e)=>{
      console.log("click detected")
 
@@ -304,7 +317,7 @@ afficher.addEventListener('click',(e)=>{
    
     afficheprofile(arr);
 });
-
+}
 // ----------------------------------------
 
 
@@ -313,6 +326,9 @@ afficher.addEventListener('click',(e)=>{
 
 function addplayer(){
     const form=document.getElementById("pseudo");
+
+    if(!form)return;
+
     const inputname=form.querySelector('[name="pseudo"]');
     const messagename=inputname.parentElement.querySelector(".error-message ");
   const  regexadd=/^[A-Za-z0-9]{3,15}$/ ;
@@ -426,8 +442,13 @@ form.addEventListener('submit',(e)=>{
 
 }  addplayer();
 
+
+
+import {selectaccount ,getselectaccount} from "./storage.js"
+
 // -----------------------select-------------------
 const playerheader=document.getElementById("profileHeader");
+if(afficher){
 
 afficher.addEventListener("click",(e)=>{
   const button=e.target.closest('[data-action="selecter"]');
@@ -435,11 +456,18 @@ afficher.addEventListener("click",(e)=>{
   const choose=button.dataset.id;
    const result=selecter(arr,choose);
   if(!result)return;
+    selectaccount(result); 
+
+    if(playerheader){
   playerheader.innerHTML=`
 
   <img src="${result.avatar}" alt="avatar"class="h-[30px] w-[30px] rounded-full">
   </p>${result.pseudo}<p>`;
 
-  console.log( "aaa",playerheader);
+  console.log( "aaa",playerheader);}
 });
+}
+
+afficherProfilaccount();
+
 
