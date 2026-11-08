@@ -9,55 +9,66 @@
 </head>
 
 
-<body class="min-h-screen bg-cover bg-center bg-no repeat"
+<body class="min-h-screen bg-cover bg-center bg-no-repeat"
     style="background-image: linear-gradient(rgba(0,0,0,0.4)),url('./image/bg.png');">
 
 
 
-<header class="bg-emperur-navigation text-emperur-text rounded-lg mx-7.5 my-3.5 h-[50px] ">
+<header class="bg-emperur-navigation text-emperur-text rounded-lg mx-3 md:mx-5 lg:mx-7.5 my-3.5 min-h-[50px] ">
 
-             <div class="  flex justify-between  items-center  gap-7  py-0 px-5  ">
+             <div class="flex flex-col md:flex-row justify-between  items-center gap-3 px-3 md:gap-7  py-0 md:px-5  ">
 
-                 <div class="flex gap-4 items-center">
+                 <div class="flex gap-4 items-center justify-center">
 
                      <img src="image/logo.png" alt="logo" class="h-[30px] rounded-lg ">
                        <h1 class="text-xl font-bold font-display ">Kill the KING </h1>
                  </div>
-   
+            <!-- <div class="flex items-center justify-between w-full md:w-auto gap-4"> -->
                 <h2 class=" bg-emperur-accent rounded-full px-5">Monche <span id="monche">1</span>/12</h2>
 
-                <div class="flex-row">
+                <div class="flex-row ">
 
                        <h2>profile-pseudo</h2>
                     <img src="" alt="avatar">
                 </div>
 
-             </div>
-
+             <!-- </div> -->
+          </div>
 </header>
 
 <main class="text-emperur-text">
 
 
-    <div class=" milieu flex flex-row gap-4 justify-center py-[100px]  ">
+    <div class=" milieu grid grid-cols-1 justify-items-center items-center gap-3 lg:flex lg:flex-row lg:gap-4 lg:justify-center py-[100px]  ">
 
                            <!-- ---------carte1--------- -->
-            <div class="votrecarte  rounded-lg bg-gray-600 h-[] border-dashed h-[165px] w-[110px] "></div>
+            <div class="votrecarte rounded-lg bg-gray-600  border-dashed  h-[140px] w-[95px] lg:h-[165px] lg:w-[110px] "></div>
 
 
 
                    <!-- -------------------------au milieu-------------------------------------- -->
-             <section class="bg-emperur-navigation rounded-4xl flex flex-col justify-center items-center p-6 ">
+             <section class=" zone-milieu  bg-emperur-navigation rounded-4xl flex flex-col justify-center items-center p-6 ">
 
                       <h2>C'est a vous de Jouer</h2>
                        <p>choississez une carte de votre main</p>
-                        <span class=""></span> 
                          <button type="button" id="start">start</button>
             </section>
 
 
+<!-- --------------------------------------------------------groupes----------------------------------------- -->
+            <section class="groupesection bg-emperur-navigation rounded-4xl flex flex-col justify-center items-center p-6 hidden  ">
+
+                      <h2>groupe</h2>
+                       <span id="groupe">1/4</span>
+                      <p> maintenant vous échangez votre cartes </p>
+                         
+            </section>
+
+
+
+
                                       <!-- ---------carte2--------- -->
-              <div  class=" randcarte rounded-lg bg-gray-600  border-dashed h-[165px] w-[110px] "></div>
+              <div  class=" randcarte rounded-lg bg-gray-600  border-dashed h-[140px] w-[95px] lg:h-[165px] lg:w-[110px] "></div>
 
    </div>
 
@@ -90,7 +101,7 @@
 
 <!-- -----------------------------------------------------votre section---------------------------------------------------- -->
 
-     <div class="flex flex-row gap-4 justify-between mx-7.5 ">
+     <div class="grid grid-cols-2 gap-2 mx-4 lg:flex lg:flex-row lg:gap-2 lg:justify-between lg:mx-7.5 ">
 
             <section class="bg-black/50 rounded-xl  ">
                 <div class="flex gap-2 py-3"  >
@@ -100,7 +111,7 @@
                  </div>
 
 
-                <div id="cartesjoueur" class="flex flex-row gap-3 px-6">   
+                <div id="cartesjoueur" class="grid grid-cols-1 gap-3 justify-items-center  md:grid-cols-3 md:gap-3 lg:flex lg:flex-row lg:gap-3 lg:px-4">   
                 </div>
 
             </section>
@@ -109,33 +120,13 @@
 
 
 <!-- ----------------------------------------ordinateur------------------------------------------------------ -->
-        <section class="bg-black/50 rounded-xl  ">
-            <div class="flex gap-2 py-3"  >
+        <section class="bg-black/50 rounded-xl ">
+            <div class="flex gap-2 py-3  items-center justify-center "  >
                   <img src="image/logo.png" alt="logo" class="rounded-full h-[30px] ">
                     <h2>ordinateur section</h2>
                 </div>
 
-                <div id="carteordinateur" class="flex flex-row gap-3 px-6">
-
-                <div class="  border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[165px] w-[110px] shrink-0 flex items-center ">
-                     <img src="image/logo.png" alt="logo" class="carte" >
-                 </div>
-
-                <div class="  border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[165px] w-[110px] shrink-0 flex items-center ">
-                    <img src="image/logo.png" alt="logo" class="carte">
-                </div>
-
-                <div class=" border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[165px] w-[110px] shrink-0 flex items-center ">
-                    <img src="image/logo.png" alt="logo" class="carte" >
-                </div>
-
-                <div class="  border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[165px] w-[110px] shrink-0 flex items-center ">
-                     <img src="image/logo.png" alt="logo" class="carte">
-                </div>
-
-               <div class=" border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[165px] w-[110px] shrink-0 flex items-center ">
-                     <img src="image/logo.png" alt="logo" class="carte">
-               </div>
+                <div id="carteordinateur" class="grid grid-cols-1 gap-3 justify-items-center md:grid-cols-3 md:gap-3 lg:flex lg:flex-row lg:gap-3 lg:px-4">
 
              </div>
         </section>
@@ -144,9 +135,9 @@
 
 
     <!-- ----------------------------------------------------------barre---------------------------------- -->
-    <section class="bg-emperur-navigation rounded-lg  mx-7.5 my-3.5 h-[60px] flex flex-row justify-between items-center">
+    <section class="bg-emperur-navigation rounded-lg  py-4 my-6 lg:mx-7.5 lg:my-3.5 md:h-[60px] flex flex-row justify-between items-center">
 
-          <div class="flex flex-row px-3">
+          <div class="flex flex-row px-1 lg:px-3">
                  <img src="image/logo.png" alt="logo" class="rounded-full h-[30px] ">
                    <div class="flex-col">
                      <h3 >Votre score</h3>
@@ -181,9 +172,9 @@
 
 <!-- ------------------------------footer--------------------- -->
 
-<footer class="bg-emperur-navigation text-emperur-text  rounded-t-lg mx-7">
-    <div class="max-w-[1100] mx-auto px-5 py-6 ">
-    <div class="grid grid-cols-[1fr_1fr_1fr] gap-7 justify-items-center">
+<footer class="bg-emperur-navigation text-emperur-text  rounded-t-lg mx-3 md:mx-5 lg:mx-7 ">
+    <div class="max-w-[1100px] mx-auto px-4 lg:px-5 lg:py-6 ">
+    <div class="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:grid-cols-[1fr_1fr_1fr] lg:gap-7 lg:justify-items-center">
     <section >
         <h3 class="text-[16px] font-bold py-3 font-display">Navigation</h3>
     <nav class="flex flex-col text-[14px]">
@@ -239,7 +230,7 @@
            </section>
            </div>
 
-           <div class=" mx-[550px] my-5 text-sm font-light">
+           <div class="w-full text-center my-5 text-sm font-light">
             <p> 2026 MAKHFI AYA .Tous les droits réservés. </p> 
            </div>
 
