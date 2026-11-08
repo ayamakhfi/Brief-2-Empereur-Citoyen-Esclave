@@ -210,9 +210,6 @@
   .mx-auto {
     margin-inline: auto;
   }
-  .my-3 {
-    margin-block: calc(var(--spacing) * 3);
-  }
   .my-3\.5 {
     margin-block: calc(var(--spacing) * 3.5);
   }
@@ -231,9 +228,6 @@
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
   }
-  .ml-5 {
-    margin-left: calc(var(--spacing) * 5);
-  }
   .ml-7 {
     margin-left: calc(var(--spacing) * 7);
   }
@@ -249,9 +243,6 @@
   .hidden {
     display: none;
   }
-  .table {
-    display: table;
-  }
   .h-\[30px\] {
     height: 30px;
   }
@@ -263,9 +254,6 @@
   }
   .h-\[140px\] {
     height: 140px;
-  }
-  .h-\[165px\] {
-    height: 165px;
   }
   .h-\[200px\] {
     height: 200px;
@@ -282,11 +270,11 @@
   .w-48 {
     width: calc(var(--spacing) * 48);
   }
+  .w-\[30px\] {
+    width: 30px;
+  }
   .w-\[95px\] {
     width: 95px;
-  }
-  .w-\[110px\] {
-    width: 110px;
   }
   .w-\[300px\] {
     width: 300px;
@@ -306,23 +294,14 @@
   .min-w-full {
     min-width: 100%;
   }
-  .flex-shrink {
-    flex-shrink: 1;
-  }
   .shrink-0 {
     flex-shrink: 0;
   }
   .border-collapse {
     border-collapse: collapse;
   }
-  .transform {
-    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-  }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .list-inside {
     list-style-position: inside;
@@ -420,9 +399,6 @@
   }
   .border-red-500 {
     border-color: var(--color-red-500);
-  }
-  .bg-black {
-    background-color: var(--color-black);
   }
   .bg-black\/50 {
     background-color: color-mix(in srgb, #000 50%, transparent);
@@ -576,18 +552,6 @@
   }
   .text-red-500 {
     color: var(--color-red-500);
-  }
-  .underline {
-    text-decoration-line: underline;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
-  .transition {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .perspective-\[1000px\] {
     perspective: 1000px;
@@ -791,26 +755,6 @@ p {
 .carteflipped-votre.flip, .carteflipped-ORD.flip {
   transform: rotateY(180deg);
 }
-@property --tw-rotate-x {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-rotate-y {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-rotate-z {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-skew-x {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-skew-y {
-  syntax: "*";
-  inherits: false;
-}
 @property --tw-border-style {
   syntax: "*";
   inherits: false;
@@ -819,11 +763,6 @@ p {
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
-}
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }
 @property --tw-translate-x {
   syntax: "*";
@@ -908,14 +847,8 @@ p {
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
-      --tw-rotate-x: initial;
-      --tw-rotate-y: initial;
-      --tw-rotate-z: initial;
-      --tw-skew-x: initial;
-      --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-font-weight: initial;
-      --tw-outline-style: solid;
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
