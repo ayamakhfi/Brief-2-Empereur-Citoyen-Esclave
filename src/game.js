@@ -37,7 +37,7 @@ export function duel(cartejoueur,carteordinateur){
        return "Victoir";}
     
     else if (cartejoueur.name==="Esclave"&& carteordinateur.name==="Empereur")
-    {return "victoir";}
+    {return "Victoir";}
     
     else{ return "défaite";}
 
@@ -68,48 +68,22 @@ export function newManche(manche){
    }
 
     else{  mainjoueur=[{name:"Esclave",img:"image/Esclave.png"},
-       ... mainjoueur.slice(1)
-        ];
+       {name:"Citoyen", img:"image/Citoyen.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}];
+    
 
         mainordnateur=[{name:"Empereur", img:"image/Empereur.png"},
-            ...mainordnateur.slice(1)
-        ];}
+       {name:"Citoyen", img:"image/Citoyen.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}
+    ,{name:"Citoyen", img:"image/Citoyen.png"}];}
 
          votrecarte.innerHTML="";
     randcarte.innerHTML="";
 
 }
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // ----------------------mettre a jour-----------------
 
