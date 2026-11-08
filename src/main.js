@@ -1,5 +1,5 @@
 
-import { mainjoueur, mainordnateur ,duel  ,newManche, mettreAjour} from "./game.js";
+import { mainjoueur, mainordnateur ,duel  ,newManche, mettreAjour } from "./game.js";
 import{ cartechoisi  ,affichercartesjoueur ,affichercartesOrd, choisiORDcarte ,ordinateurcarte} from"./ui.js";
 
 // ---------------------------votre carte----------------------
@@ -21,13 +21,13 @@ cartesj.addEventListener("click",(e)=>{
 
  console.log("imgv",cartev)
  votrecarte.innerHTML=`<div class="carteflipped-votre relative perspective-[1000px]">
- <div class=" back-face border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[165px] w-[110px] shrink-0 flex items-center  ">
+ <div class=" back-face border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[140px] w-[95px] lg:h-[165px] lg:w-[110px]  shrink-0 flex items-center  ">
          <img src="image/logo.png" alt="logo" class="carte">
      </div>
 
     
-      <div class="front-face border-2 border-amber-600 rounded-lg h-[165px] w-[110px] relative">
-     <img data-action="choisi" data-id="${cartev.name}" src="${cartev.img}" alt="${cartev.name}">
+      <div class="front-face border-2 border-amber-600 rounded-lg h-[140px] w-[95px] lg:h-[165px] lg:w-[110px]  relative overflow-hidden">
+     <img data-action="choisi" data-id="${cartev.name}" src="${cartev.img}" alt="${cartev.name}" class="w-full h-full object-cover">
      </div>
       </div>`;
 
@@ -76,7 +76,7 @@ cartesj.addEventListener("click",(e)=>{
 let scorejoueur=0;
 let scoreOrdinateur=0;
 let manche=1;
-let groupe=1;
+let count=1;
 
 
 
@@ -162,26 +162,44 @@ if(cartev.name==="Empereur"|| cartev.name==="Esclave"
 
 // console.log("Joueur :", mainjoueur.length);
 // console.log("Ordinateur :", mainordnateur.length);
-
-affichercartesjoueur(mainjoueur);
-affichercartesOrd(mainordnateur);
-        
-        manchenb.textContent=manche;
-}
-
-         if(manche>12){
+// ----------------------------------modale-------------------------
+  if(manche>12){
          modale.classList.remove("hidden");
          milieu.classList.add("hidden");
         
          }
 
-         totaleORD.textContent=scorejoueur;
-         totalejoueur.textContent=scoreOrdinateur;
+          totalejoueur.textContent=scorejoueur;
+         totaleORD.textContent=scoreOrdinateur;
+
+affichercartesjoueur(mainjoueur);
+affichercartesOrd(mainordnateur);
+    }
+        manchenb.textContent=manche;
+
+
+
 //  ----------------------------echange de camp-------------------   
 const camp=document.getElementById("Camp")
 camp.textContent=mainjoueur[0].name;
 console.log("camp",camp);
 
+
+// ---------------------------------groupe---------------------------
+const groupe=document.getElementById("groupe")
+
+if (manche===4 || manche===7 ||manche===10 ){
+    count++;
+    groupe.textContent=`${count}/4`;
+    groupesection.classList.remove("hidden");
+    zonemilieu.classList.toggle("hidden");
+
+    setTimeout(()=>{
+      groupesection.classList.add("hidden");
+      zonemilieu.classList.remove("hidden");
+    },2000);
+
+}
 
   
 }
@@ -195,27 +213,49 @@ const modale=document.getElementById("modale");
 const totalejoueur=document.getElementById("totalejoueur");
 const totaleORD=document.getElementById("totaleORD");
 
+const zonemilieu=document.querySelector(".zone-milieu ");
+const groupesection=document.querySelector(".groupesection");
 
 const quitter=document.getElementById("quitter");
 const rejouer=document.getElementById("Rejouer");
 
 quitter.addEventListener("click",()=>{
-  // ----revient a page d accuil------
+  // ----revient a page d historique------
 })
 
-rejouer.addEventListener("click",()=>{
-  newManche;
-  manche=1;
 
-   manchenb.textContent=manche;
-  scorejoueur=0;
+
+
+
+
+// ----------------------------rejouer----------------------------
+
+
+rejouer.addEventListener("click",()=>{
+  
+  manche=1;
+scorejoueur=0;
   scoreOrdinateur=0;
+  count=1;
+
+  cartev=null;
+  contrecarte=null;
+
+  newManche(1);
+   manchenb.textContent=manche;
+   groupe.textContent=`${count}/4`;
 
  votrescore.textContent=scoreOrdinateur;
   ordscore.textContent=scorejoueur;
+
+  votrecarte.innerHTML="";
+  randcarte.innerHTML="";
   
   modale.classList.add("hidden");
    milieu.classList.remove("hidden");
+
+affichercartesjoueur(mainjoueur);
+affichercartesOrd(mainordnateur);
 
 })
 
