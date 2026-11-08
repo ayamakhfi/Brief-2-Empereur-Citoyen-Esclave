@@ -6,3 +6,5 @@ export function saveplayers(arr){
 export function getplayers(){
     return JSON.parse(localStorage.getItem("player"))|| [];
 }
+
+

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>kill the king</title>
+  <link rel="stylesheet" href="./dist/output.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+
+<body class="min-h-screen bg-cover bg-center bg-no-repeat"
+    style="background-image: linear-gradient(rgba(0,0,0,0.4)),url('./image/bg.png');">
+
+
+
+<header class="bg-emperur-navigation text-emperur-text rounded-lg mx-3 md:mx-5 lg:mx-7.5 my-3.5 min-h-[50px] ">
+
+             <div class="flex flex-col md:flex-row justify-between  items-center gap-3 px-3 md:gap-7  py-0 md:px-5  ">
+
+                 <div class="flex gap-4 items-center justify-center">
+
+                     <img src="image/logo.png" alt="logo" class="h-[30px] rounded-lg ">
+                       <h1 class="text-xl font-bold font-display ">Kill the KING </h1>
+                 </div>
+            <!-- <div class="flex items-center justify-between w-full md:w-auto gap-4"> -->
+                <h2 class=" bg-emperur-accent rounded-full px-5">Monche <span id="monche">1</span>/12</h2>
+
+                <div class="flex-row ">
+
+                       <h2>profile-pseudo</h2>
+                    <img src="" alt="avatar">
+                </div>
+
+             <!-- </div> -->
+          </div>
+</header>
+
+<main class="text-emperur-text">
+
+
+    <div class=" milieu grid grid-cols-1 justify-items-center items-center gap-3 lg:flex lg:flex-row lg:gap-4 lg:justify-center py-[100px]  ">
+
+                           <!-- ---------carte1--------- -->
+            <div class="votrecarte rounded-lg bg-gray-600  border-dashed  h-[140px] w-[95px] lg:h-[165px] lg:w-[110px] "></div>
+
+
+
+                   <!-- -------------------------au milieu-------------------------------------- -->
+             <section class=" zone-milieu  bg-emperur-navigation rounded-4xl flex flex-col justify-center items-center p-6 ">
+
+                      <h2>C'est a vous de Jouer</h2>
+                       <p>choississez une carte de votre main</p>
+                         <button type="button" id="start">start</button>
+            </section>
+
+
+<!-- --------------------------------------------------------groupes----------------------------------------- -->
+            <section class="groupesection bg-emperur-navigation rounded-4xl flex flex-col justify-center items-center p-6 hidden  ">
+
+                      <h2>groupe</h2>
+                       <span id="groupe">1/4</span>
+                      <p> maintenant vous échangez votre cartes </p>
+                         
+            </section>
+
+
+
+
+                                      <!-- ---------carte2--------- -->
+              <div  class=" randcarte rounded-lg bg-gray-600  border-dashed h-[140px] w-[95px] lg:h-[165px] lg:w-[110px] "></div>
+
+   </div>
+
+
+
+            <!-- -------------------------------modale----------------------- -->
+
+
+<div id="modale" class=" bg-emperur-navigation text-emperur-text rounded-lg flex flex-col justify-center items-center min-w-full my-[100px] hidden">
+         <h2>Fin de partie</h2>
+         <h3 >Voter score</h3>
+       <div class="flex flex-row gap-5">
+         <p>pseudo </p>
+         <span id="totalejoueur" >0</span>
+          <p>ordinateur </p>
+          <span id="totaleORD">0</span>
+       </div>
+      <div class=" flex flex-row gap-6"> 
+         <button type="button" id="Rejouer">Rejouer </button>
+         <button type="button" id="quitter">Quitter</button>
+     </div>
+</div>
+
+
+    
+
+
+
+
+
+<!-- -----------------------------------------------------votre section---------------------------------------------------- -->
+
+     <div class="grid grid-cols-2 gap-2 mx-4 lg:flex lg:flex-row lg:gap-2 lg:justify-between lg:mx-7.5 ">
+
+            <section class="bg-black/50 rounded-xl  ">
+                <div class="flex gap-2 py-3"  >
+                   <img src="image/logo.png" alt="logo" class="rounded-full h-[30px] ">
+
+                    <h2>Votre section</h2>
+                 </div>
+
+
+                <div id="cartesjoueur" class="grid grid-cols-1 gap-3 justify-items-center  md:grid-cols-3 md:gap-3 lg:flex lg:flex-row lg:gap-3 lg:px-4">   
+                </div>
+
+            </section>
+
+
+
+
+<!-- ----------------------------------------ordinateur------------------------------------------------------ -->
+        <section class="bg-black/50 rounded-xl ">
+            <div class="flex gap-2 py-3  items-center justify-center "  >
+                  <img src="image/logo.png" alt="logo" class="rounded-full h-[30px] ">
+                    <h2>ordinateur section</h2>
+                </div>
+
+                <div id="carteordinateur" class="grid grid-cols-1 gap-3 justify-items-center md:grid-cols-3 md:gap-3 lg:flex lg:flex-row lg:gap-3 lg:px-4">
+
+             </div>
+        </section>
+</div>
+
+
+
+    <!-- ----------------------------------------------------------barre---------------------------------- -->
+    <section class="bg-emperur-navigation rounded-lg  py-4 my-6 lg:mx-7.5 lg:my-3.5 md:h-[60px] flex flex-row justify-between items-center">
+
+          <div class="flex flex-row px-1 lg:px-3">
+                 <img src="image/logo.png" alt="logo" class="rounded-full h-[30px] ">
+                   <div class="flex-col">
+                     <h3 >Votre score</h3>
+                     <span id="votrescore">0</span>
+                    </div>
+           </div>
+       
+       
+
+          <div class="flex flex-row px-3">
+                  <img src="image/logo.png" alt="logo" class="rounded-full h-[30px] ">
+                      <div class="flex-col">
+                         <h3>Camp actuel</h3>
+                         <p id="Camp">Empereur</p>
+                      </div>
+           </div>
+
+
+           <div class="flex flex-row px-3">
+                    <img src="image/logo.png" alt="logo" class="rounded-full h-[30px] ">
+                        <div class="flex-col">
+                           <h3 > Score ordinateur</h3>
+                           <span id="ordscore">0</span>
+                        </div>
+         </div>
+
+    </section>
+</main>
+
+
+
+
+<!-- ------------------------------footer--------------------- -->
+
+<footer class="bg-emperur-navigation text-emperur-text  rounded-t-lg mx-3 md:mx-5 lg:mx-7 ">
+    <div class="max-w-[1100px] mx-auto px-4 lg:px-5 lg:py-6 ">
+    <div class="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:grid-cols-[1fr_1fr_1fr] lg:gap-7 lg:justify-items-center">
+    <section >
+        <h3 class="text-[16px] font-bold py-3 font-display">Navigation</h3>
+    <nav class="flex flex-col text-[14px]">
+        <a href="#" class="py-2">Nous contacter</a>
+        <a href="#"class="py-2">guide de débutant</a>
+        <a href="#"class="py-2">FAQ </a>
+        <a href="#"class="py-2">signaler un bug</a>
+     </nav>
+     </section>
+
+
+        <section>
+            <h3 class="text-[16px] font-bold py-3 font-display" >Suivez-nous sur nos réseaux sociaux:</h3>
+            <ul class="flex gap-3">
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path fill="currentColor" d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.6 18.6 0 0 0-5.487 0a12 12 0 0 0-.617-1.23A.08.08 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.1.1 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055a20 20 0 0 0 5.993 2.98a.08.08 0 0 0 .084-.026a14 14 0 0 0 1.226-1.963a.074.074 0 0 0-.041-.104a13 13 0 0 1-1.872-.878a.075.075 0 0 1-.008-.125q.19-.14.372-.287a.08.08 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.08.08 0 0 1 .079.009q.18.148.372.288a.075.075 0 0 1-.006.125q-.895.515-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.08.08 0 0 0 .084.028a20 20 0 0 0 6.002-2.981a.08.08 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028M8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38c0-1.312.956-2.38 2.157-2.38c1.21 0 2.176 1.077 2.157 2.38c0 1.312-.956 2.38-2.157 2.38m7.975 0c-1.183 0-2.157-1.069-2.157-2.38c0-1.312.955-2.38 2.157-2.38c1.21 0 2.176 1.077 2.157 2.38c0 1.312-.946 2.38-2.157 2.38" />
+                        </svg>
+ 
+                    </a>
+                 </li>
+                <li>
+                    <a href="#" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="M12 8.75a3.25 3.25 0 1 0 0 6.5a3.25 3.25 0 0 0 0-6.5" />
+	<path fill="currentColor" fill-rule="evenodd" d="M6.77 3.082a47.5 47.5 0 0 1 10.46 0c1.899.212 3.43 1.707 3.653 3.613a45.7 45.7 0 0 1 0 10.61c-.223 1.906-1.754 3.401-3.652 3.614a47.5 47.5 0 0 1-10.461 0c-1.899-.213-3.43-1.708-3.653-3.613a45.7 45.7 0 0 1 0-10.611C3.34 4.789 4.871 3.294 6.77 3.082M17 6a1 1 0 1 0 0 2a1 1 0 0 0 0-2m-9.75 6a4.75 4.75 0 1 1 9.5 0a4.75 4.75 0 0 1-9.5 0" clip-rule="evenodd" />
+</svg>
+
+                    </a>
+                    
+                </li>
+            </ul>
+            <h3 class="text-[16px] font-bold py-3 font-display">Télécharger</h3>
+            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="m3.637 3.434l8.74 8.571l-8.675 8.65a2.1 2.1 0 0 1-.326-.613a2.5 2.5 0 0 1 0-.755V4.567c-.026-.395.065-.79.26-1.133m12.506 4.833l-2.853 2.826L4.653 2.6c.28-.097.58-.124.873-.078c.46.126.899.32 1.302.573l7.816 4.325c.508.273 1.003.56 1.498.847M13.29 12.93l2.839 2.788l-2.058 1.146l-6.279 3.49c-.52.287-1.042.561-1.55.874a1.8 1.8 0 0 1-1.472.195zm7.36-.925a1.92 1.92 0 0 1-.99 1.72l-2.346 1.302l-3.087-3.022l3.1-3.074c.795.443 1.577.886 2.358 1.303a1.89 1.89 0 0 1 .964 1.771" />
+</svg>
+
+            </a>
+            </section>
+
+           <section>
+            <h3 class="text-[16px] font-bold py-3 font-display"> Mentions légales et Sécurité</h3>
+            <nav class="flex flex-col text-[14px] ">
+             <a href="#" class="py-2">Conditions générales d'Utilisation</a>
+             <a href="#" class="py-2">Politique de Confidentialité</a>
+             <a href="#" class="py-2">Gestion des Cookies</a>
+             <a href="#" class="py-2">Mentions légales</a>
+            </nav>
+           </section>
+           </div>
+
+           <div class="w-full text-center my-5 text-sm font-light">
+            <p> 2026 MAKHFI AYA .Tous les droits réservés. </p> 
+           </div>
+
+
+         </div>
+
+        </div>
+    
+</footer>
+
+<script type="module" src="./src/ui.js"></script>
+<script type="module" src="./src/main.js"></script>
+
+</body>
+</html>
