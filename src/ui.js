@@ -7,9 +7,9 @@ const cartesj=document.getElementById("cartesjoueur")
   mainjoueur.forEach((cartej ,index)=>{
 
 const carte=document.createElement("div");
-carte.className="border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[165px] w-[110px] shrink-0 flex items-center hover:shadow-lg hover:shadow-amber-900 hover:-translate-y-3 ";
+carte.className="border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[140px] w-[95px] lg:h-[165px] lg:w-[110px]  shrink-0 flex items-center hover:shadow-lg hover:shadow-amber-900 hover:-translate-y-3 ";
 carte.innerHTML=` 
-         <img data-action="choisi" data-index="${index}" data-id="${cartej.name}" src="${cartej.img}" alt="${cartej.name}">`;
+         <img data-action="choisi" data-index="${index}" data-id="${cartej.name}" src="${cartej.img}" alt="${cartej.name}" class="w-full h-full object-cover">`;
 
 cartesj.appendChild(carte);});
 
@@ -25,7 +25,7 @@ const cartesOrd=document.getElementById("carteordinateur")
 mainordnateur.forEach((carted)=>{
 
 const carte=document.createElement("div");
-carte.className="border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[165px] w-[110px] shrink-0 flex items-center hover:shadow-lg hover:shadow-amber-900 hover:-translate-y-3 ";
+carte.className="border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[140px] w-[95px] lg:h-[165px] lg:w-[110px]  shrink-0 flex items-center hover:shadow-lg hover:shadow-amber-900 hover:-translate-y-3 ";
 carte.innerHTML=` 
          <img  src="image/logo.png" alt="logo">`;
 
@@ -70,13 +70,13 @@ export function ordinateurcarte(contrecarte){
 if (!contrecarte)return;
 
  randcarte.innerHTML=`<div class="carteflipped-ORD ">
- <div class=" back-face border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[165px] w-[110px] shrink-0 flex items-center ">
+ <div class=" back-face border-2 border-amber-600 bg-emperur-cartes rounded-lg h-[140px] w-[95px] lg:h-[165px] lg:w-[110px]  shrink-0 flex items-center ">
          <img src="image/logo.png" alt="logo" class="carte"> </div>
    
      
      
-      <div class="front-face border-2 border-amber-600   rounded-lg h-[165px] w-[110px] shrink-0  ">
-     <img data-action="choisi" data-id="${contrecarte.name}" src="${contrecarte.img}" alt="${contrecarte.name}">
+      <div class="front-face border-2 border-amber-600   rounded-lg h-[140px] w-[95px] lg:h-[165px] lg:w-[110px]  shrink-0 relative  overflow-hidden ">
+     <img data-action="choisi" data-id="${contrecarte.name}" src="${contrecarte.img}" alt="${contrecarte.name} class="w-full h-full object-cover">
       </div>
       </div>
        `;
