@@ -93,7 +93,18 @@ export function mettreAjour(joueur,ordinateur){
 }
 
 
+// -----------------------gagnant----------------
+export function win(totalejoueur,totaleORD){
+    if(totalejoueur>totaleORD){
+        return "victoir";
+    }
+    else if (totalejoueur<totaleORD){
+        return "défaite";
+    }
 
+    else {return "Egalité";}
+    
+}
 
 
 

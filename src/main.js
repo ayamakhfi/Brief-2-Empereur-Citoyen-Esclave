@@ -1,10 +1,11 @@
 
-import { mainjoueur, mainordnateur ,duel  ,newManche, mettreAjour } from "./game.js";
+import { mainjoueur, mainordnateur ,duel  ,newManche, mettreAjour ,win } from "./game.js";
 import{ cartechoisi  ,affichercartesjoueur ,affichercartesOrd, choisiORDcarte ,ordinateurcarte ,afficherProfilaccount} from"./ui.js";
 
 // ---------------------------votre carte----------------------
 let cartev=null;
 let contrecarte=null;
+let partieEnregistree=false;
 
 
 const cartesj=document.getElementById("cartesjoueur");
@@ -171,12 +172,21 @@ if(cartev.name==="Empereur"|| cartev.name==="Esclave"
         
           totalejoueur.textContent=scorejoueur;
          totaleORD.textContent=scoreOrdinateur;
-         return;}
+
+   if(!partieEnregistree) {  
+const resultgame=win(scorejoueur, scoreOrdinateur);
+const player=getselectaccount();
+if(player){
+  enregistrerpartie(player , scorejoueur , scoreOrdinateur, resultgame);
+  partieEnregistree=true;}
+}
+return;}
 
 affichercartesjoueur(mainjoueur);
 affichercartesOrd(mainordnateur);
     }
         manchenb.textContent=manche;
+
 
 
 
@@ -220,10 +230,14 @@ const groupesection=document.querySelector(".groupesection");
 const quitter=document.getElementById("quitter");
 const rejouer=document.getElementById("Rejouer");
 
+
+
+// --------------------------------quitter-----------------
+
 if(quitter){
 quitter.addEventListener("click",()=>{
-  // ----revient a page d historique------
-})
+ window.location.href = "history.html";
+});
 
 }
 
@@ -275,6 +289,8 @@ buttonSeen.addEventListener("click",()=>{
 
 import { afficheprofile } from "./ui.js";
 import {supprimer , modification, arr, ajouterplayer, selecter}from"./players.js";
+ 
+afficheprofile(arr);
 
 const afficher=document.getElementById("afficher");
 // ------------------supprimer--------------------
@@ -294,7 +310,7 @@ afficher.addEventListener("click",(e)=>{
         supprimer(id);
 }
     
-
+saveplayers(arr);
 afficheprofile(arr);
 });
 }
@@ -444,7 +460,7 @@ form.addEventListener('submit',(e)=>{
 
 
 
-import {selectaccount ,getselectaccount} from "./storage.js"
+import {selectaccount ,getselectaccount, saveplayers} from "./storage.js"
 
 // -----------------------select-------------------
 const playerheader=document.getElementById("profileHeader");
@@ -471,3 +487,39 @@ afficher.addEventListener("click",(e)=>{
 afficherProfilaccount();
 
 
+// ---------------------------la partie de history-------------------
+
+
+
+const date=document.getElementById("date");
+const resultat=document.getElementById("resultat");
+const inputpseudo=document.getElementById("search");
+const messageerreur=document.querySelector(".error-message");
+
+import {affichagehistoryque, enregistrerpartie, rechercheETfilter} from "./history.js"
+
+function actualiser(){
+  const nickname=inputpseudo.value.trim();
+  const timej=date.value;
+  const res=resultat.value;
+  const historyfilter=rechercheETfilter(nickname,res,timej,arr);
+
+  if(historyfilter.length===0){
+    messageerreur.textContent="Aucune partie trouvé.";
+  }
+  else{
+    messageerreur.textContent="";
+  }
+
+  affichagehistoryque (historyfilter, arr);
+}
+
+if(inputpseudo && date && resultat){
+  inputpseudo.addEventListener("input", actualiser);
+
+  date.addEventListener("change",actualiser);
+
+  resultat.addEventListener("change",actualiser);
+
+  actualiser();
+}
