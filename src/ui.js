@@ -107,7 +107,7 @@ if (!contrecarte)return;
 
 const afficher=document.getElementById("afficher");
 
-   
+   if (!afficher) return;
    
    afficher.innerHTML="";
    arr.forEach((profile)=>{
@@ -142,3 +142,5 @@ export function afficherProfilaccount(){
   playerheader.innerHTML=`<img src="${result.avatar}" alt="avatar"class="h-[30px] w-[30px] rounded-full">
   </p>${result.pseudo}<p>`;
 }
+
+
