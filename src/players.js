@@ -4,7 +4,7 @@ import { saveplayers, getplayers } from "./storage.js";
 
 
 
-export let arr=[];
+export let arr=getplayers();
  const  regexadd=/^[A-Za-z0-9]{3,15}$/ ;
  export function ajouterplayer(nickname, choix){
     
@@ -32,10 +32,10 @@ export let arr=[];
         
         
         const player={
-        id: Date.now(),
+        id:"p-"+Date.now(),
         pseudo:nickname,
         avatar:choix,
-        date:new Date()
+        date:new Date().toISOString().slice(0,16)
     };
 
     
