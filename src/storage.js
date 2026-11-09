@@ -19,3 +19,14 @@ export function getselectaccount(){
     return JSON.parse(localStorage.getItem("playerheader"));
 }
 
+
+
+// ---------------------------history----------------
+export function historiquejoueur(history){
+    localStorage.setItem("history",JSON.stringify(history));
+}
+
+
+export function gethistoriquejoueur(){
+    return JSON.parse(localStorage.getItem("")) || [];
+}
